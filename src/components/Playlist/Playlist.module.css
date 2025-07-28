@@ -1,0 +1,9 @@
+.playlistNameInput {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-bottom: solid 2px #000000;
+  outline: none;
+  text-align: center;
+  margin-bottom: 10px;
+}

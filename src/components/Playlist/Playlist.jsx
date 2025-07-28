@@ -4,10 +4,15 @@ import Tracklist from '../Tracklist/Tracklist';
 
 import styles from './Playlist.module.css';
 
-const Playlist = ({ playListName, playlistTracks, removeTrack }) => {
+const Playlist = ({ playListName, playlistTracks, removeTrack, editPlaylistName }) => {
   return (
     <div className={styles.playlist}>
-      <h2>{playListName}</h2>
+      <input
+        className={styles.playlistNameInput}
+        type="text"
+        value={playListName}
+        onChange={({ target }) => editPlaylistName(target.value)}
+      />
       <Tracklist tracks={playlistTracks} removeTrack={removeTrack} />
       <button>Save to Spotify</button>
     </div>

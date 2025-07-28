@@ -32,12 +32,24 @@ const App = () => {
     });
   };
 
+  const editPlaylistName = (newName) => {
+    setPlaylist({
+      name: newName,
+      tracks: playlist.tracks,
+    });
+  };
+
   return (
     <div>
       <h1>Jammming</h1>
       <SearchBar />
       <SearchResults tracks={results} addTrack={addTrack} />
-      <Playlist playListName={playlist.name} playlistTracks={playlist.tracks} removeTrack={removeTrack} />
+      <Playlist 
+        playListName={playlist.name} 
+        playlistTracks={playlist.tracks} 
+        removeTrack={removeTrack} 
+        editPlaylistName={editPlaylistName} 
+      />
     </div>
   );
 };
