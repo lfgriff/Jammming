@@ -10,11 +10,9 @@ const mockResults = [
   { id: 3, name: 'Track 3', artist: 'Artist 3', album: 'Album 3' },
 ];
 
-const mockPlaylist = { name: 'My Playlist', tracks: mockResults.slice(0, 2) };
-
 const App = () => {
   const [results, setResults] = useState(mockResults);
-  const [playlist, setPlaylist] = useState(mockPlaylist);
+  const [playlist, setPlaylist] = useState({ name: 'My Playlist', tracks: [] });
 
   const addTrack = (track) => {
     if (playlist.tracks.find((savedTrack) => savedTrack.id === track.id)) {
@@ -27,12 +25,19 @@ const App = () => {
     }
   };
 
+  const removeTrack = (track) => {
+    setPlaylist({
+      name: playlist.name,
+      tracks: playlist.tracks.filter((playlistTrack) => playlistTrack.id !== track.id),
+    });
+  };
+
   return (
     <div>
       <h1>Jammming</h1>
       <SearchBar />
       <SearchResults tracks={results} addTrack={addTrack} />
-      <Playlist playListName={playlist.name} playlistTracks={playlist.tracks} />
+      <Playlist playListName={playlist.name} playlistTracks={playlist.tracks} removeTrack={removeTrack} />
     </div>
   );
 };
