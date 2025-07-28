@@ -2,10 +2,10 @@ import React from 'react';
 
 import styles from './Track.module.css';
 
-const Track = () => {
+const Track = ({ id, name, artist, album }) => {
   return (
     <div className={styles.track}>
-      <p>name - artist | album</p>
+      <p>{name} - {artist} | {album}</p>
       <button>+</button>
     </div>
   );
