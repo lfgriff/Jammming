@@ -10,15 +10,18 @@ const mockTracks = [
   { id: 3, name: 'Track 3', artist: 'Artist 3', album: 'Album 3' },
 ];
 
+const mockPlaylist = { name: 'My Playlist', tracks: mockTracks.slice(0, 2) };
+
 const App = () => {
   const [tracks, setTracks] = useState(mockTracks);
+  const [playlist, setPlaylist] = useState(mockPlaylist);
 
   return (
     <div>
       <h1>Jammming</h1>
       <SearchBar />
       <SearchResults tracks={tracks} />
-      <Playlist />
+      <Playlist playListName={playlist.name} playlistTracks={playlist.tracks} />
     </div>
   );
 };

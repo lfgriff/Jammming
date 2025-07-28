@@ -4,10 +4,11 @@ import Tracklist from '../Tracklist/Tracklist';
 
 import styles from './Playlist.module.css';
 
-const Playlist = () => {
+const Playlist = ({ playListName, playlistTracks }) => {
   return (
     <div className={styles.playlist}>
-      <h2>Playlist</h2>
+      <h2>{playListName}</h2>
+      <Tracklist tracks={playlistTracks} />
       <button>Save to Spotify</button>
     </div>
   );
